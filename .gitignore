@@ -3,3 +3,4 @@ config.json
 .vscode
 .mypy_cache
 *.csv
+.idea
