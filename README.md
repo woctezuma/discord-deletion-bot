@@ -1,18 +1,29 @@
-# Delet This
+# Discord Deletion Bot
 
-#### Purge your Discord server of unwanted previous messages by regex or account IDs
+This repository contains Python code to delete in bulk Discord messages based on a regex filter.
 
-Discord makes it difficult to truly remove data from the platform. Using this script you can scrub your entire server back to the first messages at creation using 3 different matching patterns:
+## Requirements
 
-1. Regex based deletion on the message contents for all users
-2. Message deletion based on user IDs
-3. Message deletion based on on user IDs AND a regex pattern.
+- Install the latest version of [Python 3.X][python-download].
+- Install the required packages:
 
-It is highly recommended setting your Discord [client to developer mode](https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-)
-and having a basic understanding of the [Discord snowflake ID format](https://discordapp.com/developers/docs/reference#snowflakes) before attempting to use this script.
+```bash
+pip install -r requirements.txt
+```
 
-**Per the Discord TOS this script is designed to only accept valid [Bot tokens](https://discordapp.com/developers/applications/) and respects enforced rate limits.
-Running userbots will get your account disabled and is NOT recommended.**
+- You should run the script with [a Discord bot][discordpy-doc], not a user account!
+
+Permissions of the bot should include:
+- `VIEW_CHANNEL`,
+- `MANAGE_CHANNELS`,
+- `READ_MESSAGE_HISTORY`.
+
+## Filters
+
+Filters include:
+1. regex search in messages,
+2. userIDs,
+3. a combination of both.
 
 ## Example config.json
 
@@ -60,10 +71,7 @@ python .\delet.py --resumechannel 265256381437706240
 python .\delet.py --resumechannel 265256381437706240 --resumefrom 469620983704190999 --dryrun
 ```
 
-## Notes
+<!-- Definitions -->
 
-This is written in Python 3, with the only external library needed is Requests. This can be done with `python3 -m pip install -r requirements.txt`.
-
-Depending on your server message volume size and messages to be deleted this might take several days to run. My testing revealed a rate of about 1000 messages per hour can be deleted from the API.
-
-The bot account you are running this under must have the `VIEW_CHANNEL`, `READ_MESSAGE_HISTORY`, and `MANAGE_CHANNELS` permissions in all channels you wish to scrub
+[python-download]: <https://www.python.org/downloads/>
+[discordpy-doc]: <https://discordpy.readthedocs.io/en/latest/discord.html>
