@@ -55,16 +55,16 @@ You can check your `match_regex` with online tools such as [this one][regex-onli
 
 ```
 
-| Setting          | Accepted Value                                                    |
-| ---------------- | ----------------------------------------------------------------- |
-| guild            | Discord Server Snowflake                                          |
-| token            | Discord Bot Token                                                 |
-| mode             | "regex", "users", or "regexuser"                                  |
-| match_regex      | regex to compare messages against if mode is set to regex         |
-| match_users      | list of Discord User Snowflakes if mode is set to users           |
-| ignore_channels  | list of Discord Channel Snowflakes to bypass, can be empty list   |
-| archival_enabled | true or false, toggles saving of deleted messages                 |
-| archival_file    | location to save deleted messages csv if archival_enabled is true |
+| Setting          | Accepted Value                                                                   |
+|------------------|----------------------------------------------------------------------------------|
+| guild            | Discord Server Snowflake.                                                        |
+| token            | Discord Bot Token.                                                               |
+| mode             | `"regex"`, `"users"`, or `"regexuser"`.                                          |
+| match_regex      | regex to compare messages against, if the mode is set to `regex` or `regexuser`. |
+| match_users      | list of Discord User Snowflakes, if the mode is set to `users` or `regexuser`.   |
+| ignore_channels  | list of Discord Channel Snowflakes to bypass. It can be an empty list.           |
+| archival_enabled | `"true"` or `"false"`. It toggles the saving of deleted messages.                |
+| archival_file    | CSV filename to save deleted messages to, if `archival_enabled` is true.         |
 
 ## Command Line Parameters
 
