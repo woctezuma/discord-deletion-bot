@@ -10,6 +10,16 @@ TIMEOUT_IN_SECONDS = 5
 logger = logging.getLogger(__name__)
 
 
+def discordapi_get_channel_batch(guild, header) -> dict | None:
+    request = requests.get(
+        "https://discordapp.com/api/guilds/" + guild + "/channels",
+        headers=header,
+        timeout=TIMEOUT_IN_SECONDS,
+    )
+
+    return request.json() if request.ok else None
+
+
 def discordapi_check_channel_access(channel, header) -> bool:
     request = requests.get(
         "https://discordapp.com/api/channels/" + channel["id"] + "/messages?limit=1",

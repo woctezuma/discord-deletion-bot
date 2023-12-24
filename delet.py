@@ -4,8 +4,6 @@ import logging
 import sys
 from pathlib import Path
 
-import requests
-
 from src.disk_utils import archive_message_csv
 from src.parsing_utils import (
     message_parser_regex,
@@ -13,9 +11,9 @@ from src.parsing_utils import (
     message_parser_user,
 )
 from src.request_utils import (
-    TIMEOUT_IN_SECONDS,
     discordapi_check_channel_access,
     discordapi_delete_message,
+    discordapi_get_channel_batch,
     discordapi_get_messages_batch,
 )
 
@@ -53,14 +51,9 @@ def main():
     discord_headers = {"Authorization": "Bot " + cfg["token"]}
 
     # get all the server channels
-    channels_req = requests.get(
-        "https://discordapp.com/api/guilds/" + cfg["guild"] + "/channels",
-        headers=discord_headers,
-        timeout=TIMEOUT_IN_SECONDS,
-    )
-    if channels_req.ok:
-        channels_raw = channels_req.json()
-    else:
+    channels_raw = discordapi_get_channel_batch(cfg["guild"], discord_headers)
+
+    if channels_raw is None:
         logger.critical(
             "Invalid Discord Guild! (check your token and bot permissions?)",
         )
