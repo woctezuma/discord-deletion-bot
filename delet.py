@@ -104,6 +104,7 @@ def main():
                     value_before = channel["last_message_id"]
 
                 history = 0
+                value_lastid = None
 
                 while True:
                     message = "GETTING BATCH OF 100 MESSAGES: LAST ID {} in {}".format(
