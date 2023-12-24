@@ -6,6 +6,12 @@ import requests
 
 TIMEOUT_IN_SECONDS = 5
 
+# Reference: https://discord.com/developers/docs/resources/channel#channel-object-channel-types
+GUILD_TEXT_CHANNEL_TYPE = 0
+PUBLIC_THREAD_CHANNEL_TYPE = 11
+PRIVATE_THREAD_CHANNEL_TYPE = 12
+GUILD_FORUM_CHANNEL_TYPE = 15
+
 # start the logging module
 logger = logging.getLogger(__name__)
 
