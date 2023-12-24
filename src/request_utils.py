@@ -20,6 +20,18 @@ def discordapi_get_channel_batch(guild, header) -> dict | None:
     return request.json() if request.ok else None
 
 
+def discordapi_get_thread_batch(guild, header) -> dict | None:
+    # Reference: https://discord.com/developers/docs/topics/threads#enumerating-threads
+
+    request = requests.get(
+        "https://discordapp.com/api/guilds/" + guild + "/threads/active",
+        headers=header,
+        timeout=TIMEOUT_IN_SECONDS,
+    )
+
+    return request.json() if request.ok else None
+
+
 def discordapi_check_channel_access(channel, header) -> bool:
     request = requests.get(
         "https://discordapp.com/api/channels/" + channel["id"] + "/messages?limit=1",
