@@ -190,7 +190,7 @@ def main():
                         break
 
                     # if the value_lastid is not changing, we hit the end of the channel
-                    if value_before == value_lastid:
+                    if value_lastid is None or value_before == value_lastid:
                         message = f"END OF CHANNEL: LAST ID {value_lastid}"
                         logger.info(message)
                         break
