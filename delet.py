@@ -11,6 +11,8 @@ from src.parsing_utils import (
     message_parser_user,
 )
 from src.request_utils import (
+    GUILD_TEXT_CHANNEL_TYPE,
+    PUBLIC_THREAD_CHANNEL_TYPE,
     discordapi_check_channel_access,
     discordapi_delete_message,
     discordapi_get_channel_batch,
@@ -18,7 +20,7 @@ from src.request_utils import (
 )
 
 CONFIG_FNAME = "config.json"
-ALLOWED_CHANNEL_TYPES = [0]
+ALLOWED_CHANNEL_TYPES = [GUILD_TEXT_CHANNEL_TYPE, PUBLIC_THREAD_CHANNEL_TYPE]
 
 
 def main():
