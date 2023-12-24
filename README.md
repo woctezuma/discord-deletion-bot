@@ -37,14 +37,24 @@ You can check your `match_regex` with online tools such as [this one][regex-onli
 
 ```Json
 {
-    "guild":"265256381437706240",
-    "token":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "mode":"regex",
-    "match_regex":"\\bretard(?:ed)?\\b",
-    "match_users":["252869311545212928","265255911012958208"],
-    "ignore_channels":["270579644372090880","356781927836942339","270578632026488851","270695480873189376","419976078321385473","273164941857652737"],
-    "archival_enabled":"true",
-    "archival_file":"deleted_this.csv"
+  "guild": "265256381437706240",
+  "token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "mode": "regex",
+  "match_regex": "\\bretard(?:ed)?\\b",
+  "match_users": [
+    "252869311545212928",
+    "265255911012958208"
+  ],
+  "ignore_channels": [
+    "270579644372090880",
+    "356781927836942339",
+    "270578632026488851",
+    "270695480873189376",
+    "419976078321385473",
+    "273164941857652737"
+  ],
+  "archival_enabled": "true",
+  "archival_file": "deleted_this.csv"
 }
 
 ```
