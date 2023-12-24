@@ -181,7 +181,11 @@ def main():
                                 archive_message_csv(channel, msg, cfg["archival_file"])
 
                     # if we are in limited lookback mode, hit n and move to next channel
-                    if args["lookback"] != 0 and history >= int(args["lookback"]):
+                    if (
+                        args["lookback"]
+                        and args["lookback"] != 0
+                        and history >= int(args["lookback"])
+                    ):
                         message = f"LOOKBACK ENABLED, LOOPED THROUGH {history} MESSAGES IN {value_lastid}"
                         logger.info(message)
                         break
