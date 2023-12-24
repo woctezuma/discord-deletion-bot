@@ -17,6 +17,7 @@ from src.request_utils import (
     discordapi_delete_message,
     discordapi_get_channel_batch,
     discordapi_get_messages_batch,
+    discordapi_get_thread_batch,
 )
 
 CONFIG_FNAME = "config.json"
@@ -63,6 +64,12 @@ def main():
             "Invalid Discord Guild! (check your token and bot permissions?)",
         )
         sys.exit()
+
+    # get all the active threads
+    threads_raw = discordapi_get_thread_batch(cfg["guild"], discord_headers)
+
+    if threads_raw:
+        channels_raw += threads_raw["threads"]
 
     # if the --resumechannel flag is set, lets skip to that channel
     if args["resumechannel"]:
