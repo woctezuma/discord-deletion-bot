@@ -15,14 +15,15 @@ logger = logging.getLogger(__name__)
 
 def discordapi_check_channel_access(channel, header) -> bool:
     request = requests.get(
-        "https://discordapp.com/api/channels/" + channel + "/messages?limit=1",
+        "https://discordapp.com/api/channels/" + channel["id"] + "/messages?limit=1",
         headers=header,
         timeout=TIMEOUT_IN_SECONDS,
     )
     is_a_success = request.ok
 
     if not is_a_success:
-        logger.error(request.status_code)
+        message = f"{request.status_code} for {channel['id']} (#{channel['name']})"
+        logger.error(message)
 
     return is_a_success
 

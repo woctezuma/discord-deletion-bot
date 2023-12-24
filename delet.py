@@ -92,7 +92,7 @@ def main():
                 logger.info(message)
                 continue
 
-            if discordapi_check_channel_access(channel["id"], discord_headers):
+            if discordapi_check_channel_access(channel, discord_headers):
                 message = f"ALLOWED CHANNEL READ: {channel['id']} (#{channel['name']})"
                 logger.info(message)
 
