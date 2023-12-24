@@ -14,9 +14,9 @@ pip install -r requirements.txt
 - You should run the script with [a Discord bot][discordpy-doc], not a user account!
 
 Permissions of the bot should include:
-- `VIEW_CHANNEL`,
-- `MANAGE_CHANNELS`,
-- `READ_MESSAGE_HISTORY`.
+- `Read Messages/View Channels`,
+- `Manage Messages`,
+- `Read Message History`.
 
 ## Filters
 
