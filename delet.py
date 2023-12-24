@@ -18,6 +18,7 @@ from src.request_utils import (
 )
 
 CONFIG_FNAME = "config.json"
+ALLOWED_CHANNEL_TYPES = [0]
 
 
 def main():
@@ -80,7 +81,7 @@ def main():
 
     # run through the channels, yes this is nested pretty badly don't @ me
     for channel in channels:
-        if channel["type"] == 0:
+        if channel["type"] in ALLOWED_CHANNEL_TYPES:
             # if the channel is in the ignore list, skip
             if channel["id"] in cfg["ignore_channels"]:
                 message = (
