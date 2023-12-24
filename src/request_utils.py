@@ -1,9 +1,6 @@
-import csv
 import logging
-import re
 import time
 from http import HTTPStatus
-from pathlib import Path
 
 import requests
 
@@ -79,44 +76,3 @@ def discordapi_delete_message(channel, message, header) -> bool:
 
 def get_cooldown_future(rsp):
     return round(float(rsp["retry_after"] / 1000) + 1, 2)
-
-
-# return True if we should delete the message
-def message_parser_user(message, users):
-    if message["author"]["id"] in users:
-        return message["author"]["id"]
-    return False
-
-
-# return True if we should delete the message
-def message_parser_regex(message, regex):
-    regex_found = re.findall(regex, message["content"].lower())
-    if len(regex_found) == 0:
-        return False
-    return regex_found
-
-
-def message_parser_regexuser(message, users, regex):
-    if message["author"]["id"] in users:
-        regex_found = re.findall(regex, message["content"].lower())
-        if len(regex_found) == 0:
-            return False
-        return regex_found
-    return False
-
-
-def archive_message_csv(channel, message, file) -> bool:
-    with Path(file).open("a", encoding="utf-8", newline="") as f:
-        f_writer = csv.writer(f)
-        f_writer.writerow(
-            [
-                message["timestamp"],
-                channel["id"],
-                channel["name"],
-                message["id"],
-                message["author"]["id"],
-                message["author"]["username"],
-                message["content"],
-            ],
-        )
-    return True

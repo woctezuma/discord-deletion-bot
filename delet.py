@@ -6,15 +6,17 @@ from pathlib import Path
 
 import requests
 
-from functions import (
-    TIMEOUT_IN_SECONDS,
-    archive_message_csv,
-    discordapi_check_channel_access,
-    discordapi_delete_message,
-    discordapi_get_messages_batch,
+from src.disk_utils import archive_message_csv
+from src.parsing_utils import (
     message_parser_regex,
     message_parser_regexuser,
     message_parser_user,
+)
+from src.request_utils import (
+    TIMEOUT_IN_SECONDS,
+    discordapi_check_channel_access,
+    discordapi_delete_message,
+    discordapi_get_messages_batch,
 )
 
 
