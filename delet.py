@@ -34,7 +34,7 @@ def main():
         logger.critical(message)
         sys.exit()
 
-    # load in optional arguements to resume, to prevent re-iteration over millions of messages
+    # load in optional arguments to resume, to prevent re-iteration over millions of messages
     arg = argparse.ArgumentParser()
     arg.add_argument("-rf", "--resumefrom")
     arg.add_argument("-rc", "--resumechannel")
@@ -121,7 +121,7 @@ def main():
 
                     if msgs is None:
                         logger.warning(
-                            "DISCORD API ERROR: Recieved None for messages batch, trying again.",
+                            "DISCORD API ERROR: Received None for messages batch, trying again.",
                         )
                         continue
 
