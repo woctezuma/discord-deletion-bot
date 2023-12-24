@@ -21,11 +21,19 @@ Permissions of the bot should include:
 ## Filters
 
 Filters include:
-1. regex search in messages,
-2. userIDs,
-3. a combination of both.
+1. regex search in messages, with `"mode": "regex"`,
+2. userIDs, with `"mode": "users"`,
+3. a combination of both, with `"mode": "regexuser"`.
 
 ## Example config.json
+
+The `token` of your bot can be found at `https://discord.com/developers/applications/[APPLICATION_ID]/bot`,
+where `[APPLICATION_ID]` should be replaced by **your** application ID.
+
+The `guild`, `match_users` and `ignore_channels` IDs can be found by right-clicking on the server, users, and channels
+respectively, after you have enabled the developer tools in the advanced section of the settings of your Discord client.
+
+You can check your `match_regex` with online tools such as [this one][regex-online-tool].
 
 ```Json
 {
@@ -54,7 +62,7 @@ Filters include:
 
 ## Command Line Parameters
 
-These are optional. Best used to pick off where the script stopped on a crash or disconnect or debugging.
+These are optional parameters, to resume from where the script stopped in case of crashes, disconnections, or to debug.
 
 ```
 --resumefrom <Discord Message Snowflake>
@@ -75,3 +83,4 @@ python .\delet.py --resumechannel 265256381437706240 --resumefrom 46962098370419
 
 [python-download]: <https://www.python.org/downloads/>
 [discordpy-doc]: <https://discordpy.readthedocs.io/en/latest/discord.html>
+[regex-online-tool]: <https://regex101.com/>
