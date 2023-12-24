@@ -17,6 +17,8 @@ from src.request_utils import (
     discordapi_get_messages_batch,
 )
 
+CONFIG_FNAME = "config.json"
+
 
 def main():
     # start the logging module
@@ -25,7 +27,7 @@ def main():
 
     # load the configuration file
     try:
-        with Path("config.json").open() as cfg_file:
+        with Path(CONFIG_FNAME).open() as cfg_file:
             cfg = json.load(cfg_file)
     except FileNotFoundError as e:
         message = (
